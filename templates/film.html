@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+    <div class='popup'>
+
+        <div class='popup_row'>
+            <div class='popup_child'>
+                <img src='{{ film.get("url") }}' class='film_img_popup'>
+            </div>
+            <div class='popup_child_2'>
+                <h2>
+                    {{ film.get('name_film', 'N/A') }}
+                </h2>
+                <p>
+                    Release date:
+                    <span class='text_accent'>
+                        {{ film.get('release_date', 'N/A') }}
+                    </span>
+                </p>
+                <p>
+                    Age:
+                    <span class='text_accent'>
+                        {{ film.get('age', 'N/A') }}
+                    </span>
+                </p>
+                <p>
+                    Genres:
+                    <span class='text_accent'>
+                        {{ ', '.join(film.get('genres', [])) }}
+                    </span>
+                </p>
+                <p>
+                    Director:
+                    <span class='text_accent'>
+                        <a href='http://127.0.0.1:5000/director/{{ film.get("id_director") }}' class='popup_a'>
+                            {{ film.get('name_director', 'N/A') }}
+                        </a>
+                    </span>
+                </p>
+                <p>
+                    Actors:
+                    <span class='text_accent'>
+                        {% for actor in film.get('actors', []) %}
+                            <a href='http://127.0.0.1:5000/actor/{{ actor.get("id_actor") }}' class='popup_a'>
+                                {{ actor.get("name_actor", "N/A")  }}{% if actor.get("name_actor", "N/A") != film["actors"][-1:][0].get("name_actor", "N/A") %},{% endif %}
+                            </a>
+                        {% endfor %}
+                    </span>
+                </p>
+                <p>
+                    Nominations:
+                    <span class='text_accent'>
+                        {{ ', '.join(film.get('nominations', ['N/A'])) }}
+                    </span>
+                </p>
+                <p>
+                    Rewards:
+                    <span class='text_accent'>
+                        {{ ', '.join(film.get('rewards', ['N/A'])) }}
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <img src='{{ url_for("static", filename="player.png") }}' class='player_img'>
+        </div>
+
+        {% if is_authorized %}
+            <form action='' method='post' novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.comment }}
+                    <div class='popup_comment'>
+                        <p>
+                            <span class='mark_text'>Mark it from 0 to 10 - </span>
+                        </p>
+                        {{ form.mark }}
+                        {{ form.submit() }}
+                    </div>
+                </p>
+            </form>
+            <p style='text-align: center; color: red;'>
+                {{ error_msg }}
+            </p>
+        {% endif %}
+
+        {% for _, login, mark, date_public, comment in film.get('reviews', []) %}
+            <div class='popup_row'>
+                <p>
+                    Login: <span class='text_accent'>{{ login }}</span>
+                </p>
+                <p>
+                    Comment: <span class='text_accent'>{{ comment }}</span>
+                </p>
+                <p>
+                    Mark: <span class='text_accent'>{{ mark }}</span>
+                </p>
+                <p>
+                    Date public: <span class='text_accent'>{{ date_public }}</span>
+                </p>
+
+                {% if is_authorized %}
+                    <p>
+                        <form action='' method='post' novalidate>
+                            {{ form.hidden_tag() }}
+                            {{ delete_form.submit() }}
+                        </form>
+                    </p>
+                {% endif %}
+
+            </div>
+        <br>
+        {% endfor %}
+
+    </div>
+{% endblock %}

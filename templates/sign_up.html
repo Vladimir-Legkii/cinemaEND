@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+
+    <div class='login margin_top_80'>
+        <h1>Sign Up</h1>
+
+        <form action='' method='post'>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.login.label }}<br>
+                {{ form.login(size=35) }}<br>
+                {% for error in form.login.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=35) }}<br>
+                {% for error in form.password.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password2.label }}<br>
+                {{ form.password2(size=35) }}<br>
+                {% for error in form.password2.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.submit() }}
+            </p>
+
+        </form>
+    </div>
+
+{% endblock %}

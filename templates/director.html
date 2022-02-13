@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+
+    <h1>
+        {{ director.get("name_director", "N/A") }}
+    </h1>
+    <p>
+        {{ director.get("life_dates", "N/A") }}
+    </p>
+    <p>
+        Films:
+        {% for film in director.get('films', []) %}
+            <a href='http://127.0.0.1:5000/film/{{ film.get("id_film", 0) }}' class='popup_a'>
+                {{ film.get("name_film", "N/A")  }}{% if film.get("name_film", "N/A") != director["films"][-1:][0].get("name_film", "N/A") %},{% endif %}
+            </a>
+        {% endfor %}
+    </p>
+    <p>
+        Nominations:
+        <span class='text_accent'>
+            {{ ', '.join(director.get('nominations', [])) }}
+        </span>
+    </p>
+
+{% endblock %}

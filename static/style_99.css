@@ -1,0 +1,382 @@
+body {
+    margin: 0px;
+    background-color: #2d2d33;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    margin: 0 auto;
+    color: #fff;
+    font-family: system-ui, serif;
+}
+
+h2 {
+    margin: 0 auto;
+    color: #fff;
+    font-family: system-ui, serif;
+    text-align: center;
+}
+
+p {
+  font-family: system-ui, serif;
+  font-size: 20px;
+  line-height: 120%;
+  color: #bcbcc2;
+  text-align: center;
+  margin: 0px;
+  margin-top: 15px;
+}
+
+.header_row {
+    background-color: #212126;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.header_row {
+  display: flex;
+}
+
+.header_left {
+    text-decoration: none;
+}
+
+.header_right {
+  display: flex;
+}
+
+.button{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: system-ui, serif;
+    background: #7668cb;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    width: 100px;
+    text-align: center;
+}
+
+.button:hover {
+  background: #b0a2fc;
+}
+
+.login {
+    margin: 0 auto;
+    width: 320px;
+}
+
+.margin_right_10 {
+    margin-right: 10px;
+}
+
+.margin_top_80 {
+    margin-top: 80px;
+}
+
+input[type=submit] {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: system-ui, serif;
+    background: #7668cb;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    width: 100px;
+    text-align: center;
+    border: none;
+    margin: 0px auto;
+}
+
+input[type=submit]:hover {
+    background: #b0a2fc;
+}
+
+input[type=text] {
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: system-ui, serif;
+    background: #81818a;
+    border-radius: 4px;
+    color: #212126;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    width: 300px;
+    text-align: center;
+    border: none;
+}
+
+input[type=password] {
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: system-ui, serif;
+    background: #81818a;
+    border-radius: 4px;
+    color: #212126;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    width: 300px;
+    text-align: center;
+    border: none;
+}
+
+.films {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.films a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.film {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: system-ui, serif;
+    background: #7668cb;
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    height: 350px;
+    margin: 10px;
+    padding: 3px;
+}
+
+.film:hover {
+    background: #b0a2fc;
+}
+
+.film_img {
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    height: 350px;
+}
+
+.films p {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    padding: 30px;
+}
+
+.popup h1{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+.popup .close:hover {
+    color: #7668cb;
+}
+
+.popup_row {
+    display: flex;
+}
+
+.popup_child {
+    flex-grow: 0;
+}
+
+.popup_child_2 {
+    flex-grow: 0;
+}
+
+.film_img_popup {
+    border-radius: 20px;
+    display: block;
+    transition: all 0.3s ease-out;
+    width: 100%;
+    height: 450px;
+}
+
+.popup p {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.text_accent {
+  color: #fff;
+}
+
+.popup input[type=text] {
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: system-ui, serif;
+    background: #81818a;
+    border-radius: 4px;
+    color: #212126;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    text-align: center;
+    border: none;
+    float: left;
+    width: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.popup input[type=submit] {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: system-ui, serif;
+    background: #7668cb;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    width: 100px;
+    text-align: center;
+    border: none;
+    margin: initial;
+}
+
+.mark_text {
+    float: left;
+    padding-top: 10px;
+}
+
+.popup_a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.popup_a:hover {
+    color: #b0a2fc;
+}
+
+textarea {
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: system-ui, serif;
+    background: #81818a;
+    border-radius: 4px;
+    color: #212126;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    text-align: center;
+    border: none;
+    width: 60%;
+    height: 150px;
+    margin-top: 30px;
+}
+
+.popup_comment {
+    margin: 0 auto;
+    width: 360px;
+}
+
+.popup_small {
+    margin: 150px auto;
+    padding: 20px;
+    border-radius: 20px;
+    width: 30%;
+    position: relative;
+    background-color: #2d2d33;
+}
+
+.popup_small h1 {
+    margin-top: 0;
+    color: #fff;
+    font-family: system-ui, serif;
+}
+
+.popup_small h2 {
+    margin-top: 0;
+    color: #fff;
+    font-family: system-ui, serif;
+}
+
+.popup_small p {
+    font-family: system-ui, serif;
+    font-size: 16px;
+    line-height: 120%;
+    color: hsla(0,0%,100%,.5);
+}
+
+.popup_small .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+.popup_small .close:hover {
+    color: #7668cb;
+}
+
+.player_img {
+    width: 100%;
+    margin-top: 20px;
+}

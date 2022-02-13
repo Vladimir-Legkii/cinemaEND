@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+
+    <div class='films'>
+        {% for film in films %}
+
+            <a href='http://127.0.0.1:5000/film/{{ film["id_film"] }}'>
+                <div class='film'>
+                    <img src='{{ film.get("url") }}' class='film_img'>
+                </div>
+                <p>
+                    {{ film.get('name_film', 'N/A') }}
+                </p>
+            </a>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

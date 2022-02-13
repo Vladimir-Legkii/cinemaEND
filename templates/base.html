@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href='{{ url_for("static", filename="style_99.css") }}' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <header>
+            {% include 'header.html' %}
+        </header>
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+    </body>
+</html>
