@@ -12,7 +12,7 @@
     <p>
         Films:
         {% for film in director.get('films', []) %}
-            <a href='http://127.0.0.1:5000/film/{{ film.get("id_film", 0) }}' class='popup_a'>
+            <a href="{{url_for('film.film_page',id_film=film.get('id_film', 0))}}" class='popup_a'>
                 {{ film.get("name_film", "N/A")  }}{% if film.get("name_film", "N/A") != director["films"][-1:][0].get("name_film", "N/A") %},{% endif %}
             </a>
         {% endfor %}

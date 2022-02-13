@@ -33,7 +33,7 @@
                 <p>
                     Director:
                     <span class='text_accent'>
-                        <a href='http://127.0.0.1:5000/director/{{ film.get("id_director") }}' class='popup_a'>
+                        <a href="{{url_for('director.director_page',id_director=film.get('id_director', 0))}}" class='popup_a'>
                             {{ film.get('name_director', 'N/A') }}
                         </a>
                     </span>
@@ -42,7 +42,7 @@
                     Actors:
                     <span class='text_accent'>
                         {% for actor in film.get('actors', []) %}
-                            <a href='http://127.0.0.1:5000/actor/{{ actor.get("id_actor") }}' class='popup_a'>
+                            <a href="{{url_for('actor.actor_page',id_actor=actor.get('id_actor', 0))}}" class='popup_a'>
                                 {{ actor.get("name_actor", "N/A")  }}{% if actor.get("name_actor", "N/A") != film["actors"][-1:][0].get("name_actor", "N/A") %},{% endif %}
                             </a>
                         {% endfor %}
