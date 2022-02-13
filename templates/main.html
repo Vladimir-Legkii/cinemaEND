@@ -6,7 +6,7 @@
     <div class='films'>
         {% for film in films %}
 
-            <a href="{{url_for('film.film_page',id_film=film['id_film']}}">
+            <a href="{{url_for('film.film_page',id_film=film['id_film'])}}">
                 <div class='film'>
                     <img src='{{ film.get("url") }}' class='film_img'>
                 </div>
