@@ -30,7 +30,7 @@ def get_film(id_film):
 def get_reviews(id_film):
     return db_provider.query(
         query=f'''
-            SELECT film.id_film, review.login, review.mark, review.date_public, review.comment
+            SELECT film.id_film, review.login, review.mark, review.date_public, review.comment, review.user_id
             FROM film 
             LEFT JOIN review ON film.id_film = review.id_film
             WHERE film.id_film = '{id_film}';

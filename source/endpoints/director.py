@@ -20,7 +20,7 @@ def director_page(id_director):
     """"""
     director = {
         'films': [],
-        'nominations': [],
+        'nominations': ['N/A'],
     }
 
     data_set = get_director_films(id_director=id_director)
@@ -38,10 +38,13 @@ def director_page(id_director):
         )
 
     nominations = get_director_nominations(id_director=id_director)
+    data_nominations = []
     for nomination in nominations:
-        director['nominations'].append(
+        data_nominations.append(
             f'{nomination.get("name_nomination")} - {nomination.get("name_reward")}'
         )
+    if data_nominations:
+        director['nominations'] = data_nominations
 
     return make_response(
         render_template(

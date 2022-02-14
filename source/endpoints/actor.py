@@ -20,7 +20,7 @@ def actor_page(id_actor):
     """"""
     actor = {
         'films': [],
-        'nominations': [],
+        'nominations': ['N/A'],
     }
 
     data_set = get_actors_films(id_actors=f"'{id_actor}'")
@@ -38,10 +38,13 @@ def actor_page(id_actor):
         )
 
     nominations = get_actor_nominations(id_actors=f"'{id_actor}'")
+    data_nominations = []
     for nomination in nominations:
-        actor['nominations'].append(
+        data_nominations.append(
             f'{nomination.get("name_nomination")} - {nomination.get("name_reward")}'
         )
+    if data_nominations:
+        actor['nominations'] = data_nominations
 
     return make_response(
         render_template(

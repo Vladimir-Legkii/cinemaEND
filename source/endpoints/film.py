@@ -92,13 +92,14 @@ def film_page(id_film):
 
     film['reviews'] = reviews.get(id_film, [])
     film['genres'] = genres.get(id_film, [])
-    film['nominations'] = nominations.get(id_film, [])
-    film['rewards'] = rewards.get(id_film, [])
+    film['nominations'] = nominations.get(id_film, ['N/A'])
+    film['rewards'] = rewards.get(id_film, ['N/A'])
     film['actors'] = actors.get(id_film, [])
 
     return make_response(
         render_template(
             'film.html',
+            current_user_id=current_user.id,
             is_authorized=current_user.is_authenticated,
             film=film,
             form=form,

@@ -86,7 +86,7 @@
             </p>
         {% endif %}
 
-        {% for _, login, mark, date_public, comment in film.get('reviews', []) %}
+        {% for _, login, mark, date_public, comment, user_id in film.get('reviews', []) %}
             <div class='popup_row'>
                 <p>
                     Login: <span class='text_accent'>{{ login }}</span>
@@ -101,7 +101,7 @@
                     Date public: <span class='text_accent'>{{ date_public }}</span>
                 </p>
 
-                {% if is_authorized %}
+                {% if is_authorized and user_id == current_user_id %}
                     <p>
                         <form action='' method='post' novalidate>
                             {{ form.hidden_tag() }}
