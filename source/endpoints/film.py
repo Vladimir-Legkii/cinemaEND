@@ -37,13 +37,14 @@ def film_page(id_film):
     if request.method == 'POST':
         if form.validate():
             try:
-                add_review(
-                    mark=form.mark.data,
-                    id_film=id_film,
-                    login=current_user.login,
-                    comment=form.comment.data,
-                    user_id=current_user.id,
-                )
+                if 0 <= form.mark.data <= 10:
+                    add_review(
+                        mark=form.mark.data,
+                        id_film=id_film,
+                        login=current_user.login,
+                        comment=form.comment.data,
+                        user_id=current_user.id,
+                    )
             except Exception:
                 error_msg = 'You already exist review'
         elif delete_form.submit():
